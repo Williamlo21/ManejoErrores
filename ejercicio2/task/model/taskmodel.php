@@ -3,7 +3,7 @@
 class TaskModel
 {
 
-  private $task = [];
+  private $tasks = [];
 
   public function addTask($task)
   {

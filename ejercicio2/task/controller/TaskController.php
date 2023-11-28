@@ -23,4 +23,3 @@ class TaskController{
         $this->view->displayTask($task);
     }
 }
-// pagina 6 primera imagen
