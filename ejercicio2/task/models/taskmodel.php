@@ -23,6 +23,11 @@ class TaskModel
     $tareas = $this->db->query("SELECT * FROM task;");
     return $tareas;
   }
+  public function getOne()
+  {
+    $tarea = $this->db->query("SELECT * FROM task WHERE id={$this->id};");
+    return $tarea->fetch_object();
+  }
   public function delete()
   {
     $sql = "DELETE FROM task WHERE id={$this->id}";
@@ -30,6 +35,15 @@ class TaskModel
 
     $result = false;
     if ($delete) {
+      $result = true;
+    }
+    return $result;
+  }
+  public function update(){
+    $sql = "UPDATE task SET task='{$this->getTask()}' WHERE id={$this->id}";
+    $save = $this->db->query($sql);
+    $result = false;
+    if ($save) {
       $result = true;
     }
     return $result;
