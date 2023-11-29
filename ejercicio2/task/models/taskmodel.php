@@ -12,9 +12,15 @@ class TaskModel
 
   public function __construct()
   {
-    $this->db = Database::connect();
+    try {
+      $this->db = Database::connect();
+    }
+    catch (Exception $e) {
+      echo "Error de conexión: " . $e->getMessage();
+      
+      exit; 
+    }
   }
-
   public function guardar(){
     $sql = "INSERT INTO task VALUES (NULL, '{$this->getTask()}')";
     $save = $this->db->query($sql);
