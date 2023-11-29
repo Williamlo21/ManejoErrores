@@ -1,0 +1,30 @@
+.container{
+    background: white;
+    display: block;
+    align-content: stretch;
+}
+.header ul {
+    list-style: none;
+    /* Eliminar los puntos de lista */
+    padding: 0;
+    /* Eliminar el relleno predeterminado de la lista */
+    display: flex;
+    /* Mostrar los elementos en línea */
+}
+
+.header ul li {
+    margin-right: 20px;
+    /* Añadir espaciado entre elementos de la lista (opcional) */
+}
+
+.header ul li:last-child {
+    margin-right: 0;
+    /* Eliminar el margen del último elemento de la lista */
+}
+
+.header ul li a {
+    text-decoration: none;
+    /* Quitar la línea de los enlaces */
+    color: #000;
+    /* Cambiar el color de los enlaces (opcional) */
+}
