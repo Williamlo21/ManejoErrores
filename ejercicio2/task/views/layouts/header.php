@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -11,12 +11,12 @@
 <body>
 
 <div class="container">
-    <h1>Aplicación para crear tus tareas</h1>
+    <div class="container-texto">
+    <h1 class="titulo">Aplicación para crear tus tareas</h1>
     <div class="header">
         <ul>
             <li><a href="<?= base_url ?>Task/crear">Crear Tarea</a></li>
-            <li><a href="<?= base_url ?>respuestas/registrar">Resultado de Pruebas</a></li>
-            <li><a href="<?= base_url ?>partidos/registrar">Resultado de partidos</a></li>
+            <li><a href="<?= base_url ?>">HOME</a></li>     
         </ul>
 
     </div>

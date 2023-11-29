@@ -15,7 +15,7 @@ class TaskController{
                 $tarea->setTask($task);
                 $tarea->guardar();
                 $tasks = $tarea->getAll();
-                require_once "views/task/index.php";
+                require_once "views/task/completado.php";
             }else{
                 throw new Exception("La tarea no puede estar vacía");
             }
@@ -30,9 +30,6 @@ class TaskController{
                 $tarea = new TaskModel;
                 $tarea->setId($id);
                 $tar = $tarea->getOne();
-                // var_dump(gettype($tar));
-                var_dump($tar->task);
-                die();
                 require_once "views/task/actualizar.php";
             } else {
                 throw new Exception("No se ha pasado ID");
@@ -43,16 +40,19 @@ class TaskController{
         
     }
     public function actualizar(){
-        $id = isset($_GET['id']) ? $_GET['id'] : false;
+        $id = isset($_POST['id']) ? $_POST['id'] : false;
+        $task = isset($_POST['task']) ? $_POST['task'] : false;
+
         try {
-            if ($id) {
+            if ($id && $task) {
                 $tarea = new TaskModel;
                 $tarea->setId($id);
+                $tarea->setTask($task);
                 $tarea->update();
                 $tasks = $tarea->getAll();
-                require_once "views/task/index.php";
+                require_once "views/task/completado.php";
             } else {
-                throw new Exception("No se ha pasado ID");
+                throw new Exception("La tarea no puede estar vacía");
             }
         } catch (Exception $e) {
             echo $e->getMessage();
@@ -71,7 +71,7 @@ class TaskController{
                 $tarea->setId($id);
                 $tarea->delete();
                 $tasks = $tarea->getAll();
-                require_once "views/task/index.php";
+                require_once "views/task/completado.php";
             }else{
                 throw new Exception("No se ha pasado ID");
             }
